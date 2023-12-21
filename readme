@@ -1,3 +1,10 @@
-Copy and paste the code in bundle.html 
-and paste in ur Wordpress Page Builder Code Addon. 
+onurz24-Calorie-Macronutrient-Calculator
+Calorie and Macronutrient Calculator build with TypeScript SCSS. Calculates :
+
+Basic calorie requirements based on Age, Height, Weight.
+Total calorie consumption with movement based on physical activity during the day after hours.
+Macronutrients (protein, carbohydrates, fat) for different forms of nutrition (standart, low carb, low fat) based on calorie consumption and displays them in grams.
+Design and functionalities according to a client with Fitness Website. No Framework or Library easy to integrate in Wordpress.
+
+Copy and paste the code in bundle.html and paste in ur Wordpress Page Builder Code Addon. 
 For Example: Elementor Pro or Divi
