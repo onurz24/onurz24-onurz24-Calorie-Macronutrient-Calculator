@@ -1,0 +1,80 @@
+@media screen and (max-width: 350px) {
+
+    .KalorienRechner {
+        width: 95%;
+        width: 100%;
+        margin-top: 2em;
+        border: 1px solid #cacaca;
+    }
+
+    .InputContainer {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .PersonalInformation {
+        margin-top: 2em;
+    }
+
+    .TotalHours {
+        padding-top: 0em;
+    }
+
+    .KalorienRechnerOutput {
+        width: 95%;
+        margin-top: 2em;
+        border: 1px solid #cacaca;
+    }
+
+    .Footnotes {
+        p {
+            text-align: center;
+        }
+    }
+
+    .MakroRechner {
+        width: 95%;
+        width: 100%;
+        margin-top: 2em;
+        border: 1px solid #cacaca;
+    }
+
+    .Makro_Result {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .KalorienRechner::after {
+        width: 50%;
+        text-align: center;
+        top: -1.5em;
+        font-size: small;
+    }
+
+    .MakroRechner::after {
+        width: 50%;
+        text-align: center;
+        top: -1.5em;
+        font-size: small;
+    }
+}
+
+
+@media screen and (max-width :200px) {
+
+    .KalorienRechnerOutput::after {
+        text-align: center;
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width :150px) {
+    .KalorienRechnerOutput::after {
+        text-align: center;
+        font-size: x-small;
+    }
+}

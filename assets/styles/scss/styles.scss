@@ -1,0 +1,49 @@
+@import "./_mixins.scss";
+@import "./KalorienRechner.scss";
+@import "./KalorienRechnerOutput.scss";
+@import "./_media_queries.scss";
+
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding: 1em;
+    @media screen and (max-width : 350px) {
+        padding: 5vw;
+    }
+}
+
+.FitnessCalculator_Input{
+    width: 73px;
+    border: 2px inset gray;
+    outline: none;
+    padding: .25em;
+    text-align: center;
+    @media screen and (max-width: 350px) {
+        width: 50%;
+        margin-top: 1em;
+    }
+        @media screen and (max-width: 250px) {
+        width: 70%;
+        margin-top: 1em;
+    }
+}
+select{
+    width: 80px;
+    border: 2px solid rgba(196, 196, 196, 0.678);
+    text-align: center;
+    cursor: pointer;
+    @media screen and (max-width: 350px) {
+        width: 60%;
+        padding: .5em;
+        margin: .25em;
+    }
+    @media screen and (max-width: 250px) {
+        width: 80%;
+    }
+    option{
+        cursor: pointer;
+    }
+}

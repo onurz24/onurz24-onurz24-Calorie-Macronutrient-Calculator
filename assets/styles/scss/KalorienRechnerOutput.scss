@@ -1,0 +1,132 @@
+@import "./_mixins.scss";
+.KalorienRechnerOutput{
+    margin-top: 1em;
+    width: 300px;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 2px solid #d4d4d4;
+    position: relative;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    // @media screen and (max-width: 350px) {
+    //     width: 95%;
+    //     margin-top: 2em;
+    //     border: 1px solid #cacaca;
+    // }
+
+}
+.KalorienRechnerOutput::after{
+content: "Dein Kaloriebedarf";
+padding-left: .25em;
+padding-right: .25em;
+position: absolute;
+top: -.75em;
+background-color: white;
+left: 1em;
+// @media screen and (max-width :200px) {
+//     text-align: center;
+//     font-size: smaller;
+// }
+// @media screen and (max-width :150px) {
+//     text-align: center;
+//     font-size: x-small;
+// }
+}
+.Footnotes{
+    padding: .25em;
+    p{
+        font-size: smaller;
+        text-align: left;
+        color : #3f3f3f;
+        // @media screen and (max-width : 350px) {
+        //     text-align: center;
+        // }
+    }
+}
+
+.Grundumsatz{
+    margin-top: 1em;
+}
+
+
+// Makro
+.MakroRechner{
+    width: 300px;
+    flex-direction: column;
+    margin-top: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 2px solid #d4d4d4;
+    position: relative;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    // @media screen and (max-width: 350px) {
+    //     width: 95%;
+    //     width: 100%;
+    //     margin-top: 2em;
+    //     border: 1px solid #cacaca;
+    // }
+
+}
+.MakroRechner::after{
+content: "Makronährstoff-Rechner";
+padding-left: .25em;
+padding-right: .25em;
+position: absolute;
+top: -.75em;
+background-color: white;
+left: 1em;
+
+// @media screen and (max-width: 300px) {
+//     width: 50%;
+//     text-align: center;
+//     top: -1.5em;
+//     font-size: small;
+// }
+}
+
+
+#Makro_Output{
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    opacity: 0;
+    @include zentrieren();
+
+    .Makro_Result{
+        width: 100%;
+        padding: .35em;
+        padding-top: .75em;
+        // @media screen and (max-width : 350px) {
+        //      text-align: center;
+        // }
+    }   
+}
+.Makro_Output_Show{
+    opacity: 1 !important;
+    height: 150px !important;
+    transition: all .5s;
+}
+
+.CalculateMakrosBtn{
+    border:2px solid black;
+    padding: .5em;
+    width: 80px;
+    margin-top: .75em;
+    background-color: #dadadad7;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+    &:active{
+        scale : .95;
+        transition: scale .5s;
+    }
+}
+.MakroContainer{
+    align-items: center !important;
+}
+

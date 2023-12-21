@@ -1,0 +1,303 @@
+@charset "UTF-8";
+.KalorienRechner {
+  width: 300px;
+  flex-direction: column;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 2px solid #d4d4d4;
+  position: relative;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.KalorienRechner::after {
+  content: "Ermittle deinen Kalorienbedarf";
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  position: absolute;
+  top: -0.75em;
+  background-color: white;
+  left: 1em;
+}
+
+.InputContainer {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  padding: 0.25em;
+}
+
+.HoursInput {
+  padding-top: 1.5em;
+}
+
+.KalorienRechnerSektion {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+  flex-direction: column;
+  text-align: center;
+}
+
+.PersonalInformation {
+  margin-top: 1em;
+}
+
+.TotalHours {
+  padding-top: 2em;
+}
+.TotalHours .InputContainer label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.TotalHours .InputContainer label p {
+  all: unset;
+  font-size: x-small;
+}
+.TotalHours .InputContainer input {
+  height: fit-content;
+}
+.TotalHours button {
+  border: 2px solid black;
+  padding: 0.5em;
+  width: 80px;
+  margin-top: 0.35em;
+  background-color: rgba(218, 218, 218, 0.8431372549);
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+}
+.TotalHours button:active {
+  scale: 0.95;
+  transition: scale 0.5s;
+}
+
+.KalorienRechnerOutput {
+  margin-top: 1em;
+  width: 300px;
+  flex-direction: column;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 2px solid #d4d4d4;
+  position: relative;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+}
+
+.KalorienRechnerOutput::after {
+  content: "Dein Kaloriebedarf";
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  position: absolute;
+  top: -0.75em;
+  background-color: white;
+  left: 1em;
+}
+
+.Footnotes {
+  padding: 0.25em;
+}
+.Footnotes p {
+  font-size: smaller;
+  text-align: left;
+  color: #3f3f3f;
+}
+
+.Grundumsatz {
+  margin-top: 1em;
+}
+
+.MakroRechner {
+  width: 300px;
+  flex-direction: column;
+  margin-top: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border: 2px solid #d4d4d4;
+  position: relative;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.MakroRechner::after {
+  content: "Makronährstoff-Rechner";
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  position: absolute;
+  top: -0.75em;
+  background-color: white;
+  left: 1em;
+}
+
+#Makro_Output {
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+#Makro_Output .Makro_Result {
+  width: 100%;
+  padding: 0.35em;
+  padding-top: 0.75em;
+}
+
+.Makro_Output_Show {
+  opacity: 1 !important;
+  height: 150px !important;
+  transition: all 0.5s;
+}
+
+.CalculateMakrosBtn {
+  border: 2px solid black;
+  padding: 0.5em;
+  width: 80px;
+  margin-top: 0.75em;
+  background-color: rgba(218, 218, 218, 0.8431372549);
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+}
+.CalculateMakrosBtn:active {
+  scale: 0.95;
+  transition: scale 0.5s;
+}
+
+.MakroContainer {
+  align-items: center !important;
+}
+
+@media screen and (max-width: 350px) {
+  .KalorienRechner {
+    width: 95%;
+    width: 100%;
+    margin-top: 2em;
+    border: 1px solid #cacaca;
+  }
+  .InputContainer {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .PersonalInformation {
+    margin-top: 2em;
+  }
+  .TotalHours {
+    padding-top: 0em;
+  }
+  .KalorienRechnerOutput {
+    width: 95%;
+    margin-top: 2em;
+    border: 1px solid #cacaca;
+  }
+  .Footnotes p {
+    text-align: center;
+  }
+  .MakroRechner {
+    width: 95%;
+    width: 100%;
+    margin-top: 2em;
+    border: 1px solid #cacaca;
+  }
+  .Makro_Result {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 300px) {
+  .KalorienRechner::after {
+    width: 50%;
+    text-align: center;
+    top: -1.5em;
+    font-size: small;
+  }
+  .MakroRechner::after {
+    width: 50%;
+    text-align: center;
+    top: -1.5em;
+    font-size: small;
+  }
+}
+@media screen and (max-width: 200px) {
+  .KalorienRechnerOutput::after {
+    text-align: center;
+    font-size: smaller;
+  }
+}
+@media screen and (max-width: 150px) {
+  .KalorienRechnerOutput::after {
+    text-align: center;
+    font-size: x-small;
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 1em;
+}
+@media screen and (max-width: 350px) {
+  body {
+    padding: 5vw;
+  }
+}
+
+.FitnessCalculator_Input {
+  width: 73px;
+  border: 2px inset gray;
+  outline: none;
+  padding: 0.25em;
+  text-align: center;
+}
+@media screen and (max-width: 350px) {
+  .FitnessCalculator_Input {
+    width: 50%;
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 250px) {
+  .FitnessCalculator_Input {
+    width: 70%;
+    margin-top: 1em;
+  }
+}
+
+select {
+  width: 80px;
+  border: 2px solid rgba(196, 196, 196, 0.678);
+  text-align: center;
+  cursor: pointer;
+}
+@media screen and (max-width: 350px) {
+  select {
+    width: 60%;
+    padding: 0.5em;
+    margin: 0.25em;
+  }
+}
+@media screen and (max-width: 250px) {
+  select {
+    width: 80%;
+  }
+}
+select option {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=styles.css.map */

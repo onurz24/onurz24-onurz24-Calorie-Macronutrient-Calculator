@@ -1,0 +1,99 @@
+@import "./_mixins.scss";
+
+.KalorienRechner{
+    width: 300px;
+    flex-direction: column;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 2px solid #d4d4d4;
+    position: relative;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    // @media screen and (max-width: 350px) {
+    //     width: 95%;
+    //     width: 100%;
+    //     margin-top: 2em;
+    //     border: 1px solid #cacaca;
+    // }
+
+}
+.KalorienRechner::after{
+content: "Ermittle deinen Kalorienbedarf";
+padding-left: .25em;
+padding-right: .25em;
+position: absolute;
+top: -.75em;
+background-color: white;
+left: 1em;
+
+// @media screen and (max-width: 300px) {
+//     width: 50%;
+//     text-align: center;
+//     top: -1.5em;
+//     font-size: small;
+// }
+}
+.InputContainer{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    padding: .25em;
+    // padding-top: .25em;
+    // padding-bottom: .25em;
+
+    // @media screen and (max-width: 350px) {
+    //     flex-direction: column;
+    //     width: 100%;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+
+}
+.HoursInput{
+    padding-top: 1.5em;
+}
+.KalorienRechnerSektion{
+    width: 100%;
+    @include zentrieren(left,baseline,column);
+}
+.PersonalInformation{
+    margin-top: 1em;
+    // @media screen and (max-width: 350px) {
+    //     margin-top: 2em;
+    // }
+}
+.TotalHours{
+    padding-top: 2em;
+    // @media screen and (max-width: 350px) {
+    //     padding-top: 0em;
+    // }
+    .InputContainer{
+        label{
+            @include zentrieren();
+            p{
+                all: unset;
+                font-size: x-small;
+            }
+        }
+        input{
+            height: fit-content;
+        }
+    }
+
+    button{
+        border:2px solid black;
+        padding: .5em;
+        width: 80px;
+        margin-top: .35em;
+        background-color: #dadadad7;
+        font-weight: 500;
+        color: black;
+        cursor: pointer;
+        &:active{
+            scale : .95;
+            transition: scale .5s;
+        }
+    }
+}

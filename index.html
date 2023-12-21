@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Rechner</title>
+    <link rel="stylesheet" href="./assets/styles/css/styles.css">
+</head>
+
+<body>
+
+
+    <div class="KalorienRechner">
+
+        <div class="PersonalInformation KalorienRechnerSektion">
+            <!-- Start PersonalInformation -->
+            <div class="Geschlecht InputContainer">
+                <label for="">Geschlecht:</label>
+                <select name="gender" id="Gender_Input">
+                    <option value="male">Mann</option>
+                    <option value="female">Frau</option>
+                </select>
+            </div>
+            <div class="Alter InputContainer">
+                <label for="age">Alter:</label>
+                <input class="FitnessCalculator_Input" type="number"  name="age" id="Age_Input">
+            </div>
+            <div class="Gewicht InputContainer">
+                <label for="">Gewicht (kg):</label>
+                <input class="FitnessCalculator_Input" type="number"  name="weight" id="Weight_Input">
+            </div>
+            <div class="Größe InputContainer">
+                <label for="">Größe (cm)</label>
+                <input class="FitnessCalculator_Input" type="number"  name="height" id="Height_Input">
+            </div>
+            <!-- End PersonalInformation -->
+        </div>
+        <!-- Start Hours Input -->
+        <div class="HoursInput KalorienRechnerSektion">
+            <div class="Ruhe InputContainer">
+                <label for="">Ruhe (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number"  name="" id="RestHours_Input">
+            </div>
+
+            <div class="sehrleicht InputContainer">
+                <label for="">sehr leicht (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number"name="" id="VeryLightHours_Input">
+            </div>
+
+            <div class="leicht InputContainer">
+                <label for="">leicht (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="LightHours_Input">
+            </div>
+
+            <div class="normal InputContainer">
+                <label for="">normal (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="NormalHours_Input">
+            </div>
+
+            <div class="schwer InputContainer">
+                <label for="">schwer (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number"  name="" id="HeavyHours_Input">
+            </div>
+
+            <div class="sehrschwer InputContainer">
+                <label for="">sehr schwer (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number"  name="" id="VeryHeavyHours_Input">
+            </div>
+        </div>
+        
+        <div class="TotalHours KalorienRechnerSektion">
+            <div class="InputContainer">
+                <label for="">
+                    <b>Total:</b>
+                    <p>es müssen 24 Std. sein </p>
+                </label>
+                <input class="FitnessCalculator_Input" type="number" value="" name="" id="TotalHours_Output" readonly >
+            </div>
+            <div class="InputContainer">
+                <label for="">
+                    
+                </label>
+                <button class="CalculateCaloriesBtn">Berechnen</button>
+            </div>
+        </div>
+    </div>
+
+            <!-- Start Output -->
+    <div class="KalorienRechnerOutput">
+        <div class="Grundumsatz KalorienRechnerSektion">
+            <div class="Geschlecht InputContainer">
+                <label for="">Grundumsatz¹</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="BaseOutput" readonly>
+            </div>
+            <div class="Alter InputContainer">
+                <label for="">Gesamtumsatz²</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="TotalOutput" readonly>
+            </div>
+        </div>
+    </div>
+            <!-- End Output -->
+
+    <!-- Start Output Footnotes Section -->
+    <div class="Footnotes">
+        <p class="Footnote">
+            ¹Verbrauchte Kalorien ohne geleistete Arbeit am Tag
+        </p>
+        <p class="Footnote">
+            ²Verbrauchte Kalorien mit geleistete Arbeit am Tag
+        </p>
+    </div>
+    <!-- End Output Footnotes Section -->
+
+
+                <!-- Start  Makro Calculator -->
+                <div class="MakroRechner">
+                    <div class="Grundumsatz KalorienRechnerSektion MakroContainer">
+                        <div class="Energiebedarf InputContainer">
+                            <label for="Total_Input">Energiebedarf</label>
+                            <input class="FitnessCalculator_Input" type="number" name="Total_Input" id="Total_Input"> 
+                        </div>
+                        
+                        <div class="Alter InputContainer">
+                            <label for="NutritionType_Input">Ernährungsform</label>
+                            <select name="NutritionType_Input" id="NutritionType_Input">
+                                <!-- <option value="Standard">Standard</option> -->
+                                <option value="Low Carb">Low Carb</option>
+                                <option value="Low Fat">Low Fat</option>
+                            </select>
+                        </div>
+                        <button class="CalculateMakrosBtn">Berechnen</button>
+                        <!-- Start Output -->
+                        <div id="Makro_Output"></div>
+                        <!-- End Output -->
+                    </div>
+                </div>
+    
+
+
+
+  <div style="margin-top: 2em !important;">
+      <a  href="./FitnessCalculator.zip">Code Download</a>
+  </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,672 @@
+<style>
+    @charset "UTF-8";
+
+    .Onur {
+        padding-top: 5em;
+        padding-bottom: 5em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .KalorienRechner {
+        width: 300px;
+        flex-direction: column;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 2px solid #d4d4d4;
+        position: relative;
+        display: flex;
+        justify-content: baseline;
+        align-items: baseline;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    .KalorienRechner::after {
+        content: "Ermittle deinen Kalorienbedarf";
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        position: absolute;
+        top: -0.75em;
+        background-color: white;
+        left: 1em;
+    }
+
+    .InputContainer {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        padding: 0.25em;
+    }
+
+    .HoursInput {
+        padding-top: 1.5em;
+    }
+
+    .KalorienRechnerSektion {
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: baseline;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .PersonalInformation {
+        margin-top: 1em;
+    }
+
+    .TotalHours {
+        padding-top: 2em;
+    }
+
+    .TotalHours .InputContainer label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .TotalHours .InputContainer label p {
+        all: unset;
+        font-size: x-small;
+    }
+
+    .TotalHours .InputContainer input {
+        height: fit-content;
+    }
+
+    .TotalHours button {
+        border: 2px solid black;
+        padding: 0.5em;
+        width: 80px;
+        margin-top: 0.35em;
+        background-color: rgba(218, 218, 218, 0.8431372549);
+        font-weight: 500;
+        color: black;
+        cursor: pointer;
+    }
+
+    .TotalHours button:active {
+        scale: 0.95;
+        transition: scale 0.5s;
+    }
+
+    .KalorienRechnerOutput {
+        margin-top: 1em;
+        width: 300px;
+        flex-direction: column;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 2px solid #d4d4d4;
+        position: relative;
+        display: flex;
+        justify-content: baseline;
+        align-items: baseline;
+    }
+
+    .KalorienRechnerOutput::after {
+        content: "Dein Kaloriebedarf";
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        position: absolute;
+        top: -0.75em;
+        background-color: white;
+        left: 1em;
+    }
+
+    .Footnotes {
+        padding: 0.25em;
+    }
+
+    .Footnotes p {
+        font-size: smaller;
+        text-align: left;
+        color: #3f3f3f;
+    }
+
+    .Grundumsatz {
+        margin-top: 1em;
+    }
+
+    .MakroRechner {
+        width: 300px;
+        flex-direction: column;
+        margin-top: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border: 2px solid #d4d4d4;
+        position: relative;
+        display: flex;
+        justify-content: baseline;
+        align-items: baseline;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    .MakroRechner::after {
+        content: "Makronährstoff-Rechner";
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        position: absolute;
+        top: -0.75em;
+        background-color: white;
+        left: 1em;
+    }
+
+    #Makro_Output {
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #Makro_Output .Makro_Result {
+        width: 100%;
+        padding: 0.35em;
+        padding-top: 0.75em;
+    }
+
+    .Makro_Output_Show {
+        opacity: 1 !important;
+        height: 150px !important;
+        transition: all 0.5s;
+    }
+
+    .CalculateMakrosBtn {
+        border: 2px solid black;
+        padding: 0.5em;
+        width: 80px;
+        margin-top: 0.75em;
+        background-color: rgba(218, 218, 218, 0.8431372549);
+        font-weight: 500;
+        color: black;
+        cursor: pointer;
+    }
+
+    .CalculateMakrosBtn:active {
+        scale: 0.95;
+        transition: scale 0.5s;
+    }
+
+    .MakroContainer {
+        align-items: center !important;
+    }
+
+    @media screen and (max-width: 350px) {
+        .KalorienRechner {
+            width: 95%;
+            width: 100%;
+            margin-top: 2em;
+            border: 1px solid #cacaca;
+        }
+
+        .InputContainer {
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .PersonalInformation {
+            margin-top: 2em;
+        }
+
+        .TotalHours {
+            padding-top: 0em;
+        }
+
+        .KalorienRechnerOutput {
+            width: 95%;
+            margin-top: 2em;
+            border: 1px solid #cacaca;
+        }
+
+        .Footnotes p {
+            text-align: center;
+        }
+
+        .MakroRechner {
+            width: 95%;
+            width: 100%;
+            margin-top: 2em;
+            border: 1px solid #cacaca;
+        }
+
+        .Makro_Result {
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 300px) {
+        .KalorienRechner::after {
+            width: 50%;
+            text-align: center;
+            top: -1.5em;
+            font-size: small;
+        }
+
+        .MakroRechner::after {
+            width: 50%;
+            text-align: center;
+            top: -1.5em;
+            font-size: small;
+        }
+    }
+
+    @media screen and (max-width: 200px) {
+        .KalorienRechnerOutput::after {
+            text-align: center;
+            font-size: smaller;
+        }
+    }
+
+    @media screen and (max-width: 150px) {
+        .KalorienRechnerOutput::after {
+            text-align: center;
+            font-size: x-small;
+        }
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 1em;
+    }
+
+    @media screen and (max-width: 350px) {
+        body {
+            padding: 5vw;
+        }
+    }
+
+    .FitnessCalculator_Input {
+        width: 73px;
+        border: 2px inset gray;
+        outline: none;
+        padding: 0.25em;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 350px) {
+        .FitnessCalculator_Input {
+            width: 50%;
+            margin-top: 1em;
+        }
+    }
+
+    @media screen and (max-width: 250px) {
+        .FitnessCalculator_Input {
+            width: 70%;
+            margin-top: 1em;
+        }
+    }
+
+    select {
+        width: 80px;
+        border: 2px solid rgba(196, 196, 196, 0.678);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 350px) {
+        select {
+            width: 60%;
+            padding: 0.5em;
+            margin: 0.25em;
+        }
+    }
+
+    @media screen and (max-width: 250px) {
+        select {
+            width: 80%;
+        }
+    }
+
+    select option {
+        cursor: pointer;
+    }
+
+    /*# sourceMappingURL=styles.css.map */
+</style>
+
+<div class="Onur">
+    <div class="KalorienRechner">
+
+        <div class="PersonalInformation KalorienRechnerSektion">
+            <!-- Start PersonalInformation -->
+            <div class="Geschlecht InputContainer">
+                <label for="">Geschlecht:</label>
+                <select name="gender" id="Gender_Input">
+                    <option value="male">Mann</option>
+                    <option value="female">Frau</option>
+                </select>
+            </div>
+            <div class="Alter InputContainer">
+                <label for="age">Alter:</label>
+                <input class="FitnessCalculator_Input" type="number" name="age" id="Age_Input">
+            </div>
+            <div class="Gewicht InputContainer">
+                <label for="">Gewicht (kg):</label>
+                <input class="FitnessCalculator_Input" type="number" name="weight" id="Weight_Input">
+            </div>
+            <div class="Größe InputContainer">
+                <label for="">Größe (cm)</label>
+                <input class="FitnessCalculator_Input" type="number" name="height" id="Height_Input">
+            </div>
+            <!-- End PersonalInformation -->
+        </div>
+        <!-- Start Hours Input -->
+        <div class="HoursInput KalorienRechnerSektion">
+            <div class="Ruhe InputContainer">
+                <label for="">Ruhe (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="RestHours_Input">
+            </div>
+
+            <div class="sehrleicht InputContainer">
+                <label for="">sehr leicht (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="VeryLightHours_Input">
+            </div>
+
+            <div class="leicht InputContainer">
+                <label for="">leicht (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="LightHours_Input">
+            </div>
+
+            <div class="normal InputContainer">
+                <label for="">normal (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="NormalHours_Input">
+            </div>
+
+            <div class="schwer InputContainer">
+                <label for="">schwer (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="HeavyHours_Input">
+            </div>
+
+            <div class="sehrschwer InputContainer">
+                <label for="">sehr schwer (Std.)</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="VeryHeavyHours_Input">
+            </div>
+        </div>
+
+        <div class="TotalHours KalorienRechnerSektion">
+            <div class="InputContainer">
+                <label for="">
+                    <b>Total:</b>
+                    <p>es müssen 24 Std. sein </p>
+                </label>
+                <input class="FitnessCalculator_Input" type="number" value="" name="" id="TotalHours_Output" readonly>
+            </div>
+            <div class="InputContainer">
+                <label for="">
+
+                </label>
+                <button class="CalculateCaloriesBtn">Berechnen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Output -->
+    <div class="KalorienRechnerOutput">
+        <div class="Grundumsatz KalorienRechnerSektion">
+            <div class="Geschlecht InputContainer">
+                <label for="">Grundumsatz¹</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="BaseOutput" readonly>
+            </div>
+            <div class="Alter InputContainer">
+                <label for="">Gesamtumsatz²</label>
+                <input class="FitnessCalculator_Input" type="number" name="" id="TotalOutput" readonly>
+            </div>
+        </div>
+    </div>
+    <!-- End Output -->
+
+    <!-- Start Output Footnotes Section -->
+    <div class="Footnotes">
+        <p class="Footnote">
+            ¹Verbrauchte Kalorien ohne geleistete Arbeit am Tag
+        </p>
+        <p class="Footnote">
+            ²Verbrauchte Kalorien mit geleistete Arbeit am Tag
+        </p>
+    </div>
+    <!-- End Output Footnotes Section -->
+
+
+    <!-- Start  Makro Calculator -->
+    <div class="MakroRechner">
+        <div class="Grundumsatz KalorienRechnerSektion MakroContainer">
+            <div class="Energiebedarf InputContainer">
+                <label for="Total_Input">Energiebedarf</label>
+                <input class="FitnessCalculator_Input" type="number" name="Total_Input" id="Total_Input">
+            </div>
+
+            <div class="Alter InputContainer">
+                <label for="NutritionType_Input">Ernährungsform</label>
+                <select name="NutritionType_Input" id="NutritionType_Input">
+                    <!-- <option value="Standard">Standard</option> -->
+                    <option value="Low Carb">Low Carb</option>
+                    <option value="Low Fat">Low Fat</option>
+                </select>
+            </div>
+            <button class="CalculateMakrosBtn">Berechnen</button>
+            <!-- Start Output -->
+            <div id="Makro_Output"></div>
+            <!-- End Output -->
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+    "use strict";
+    /* input & output fields */
+    const Age_Input = document.querySelector('#Age_Input');
+    const Gender_Input = document.querySelector('#Gender_Input');
+    const Weight_Input = document.querySelector('#Weight_Input');
+    const Height_Input = document.querySelector('#Height_Input');
+    const RestHours_Input = document.querySelector('#RestHours_Input');
+    const LightHours_Input = document.querySelector('#LightHours_Input');
+    const VeryLightHours_Input = document.querySelector('#VeryLightHours_Input');
+    const NormalHours_Input = document.querySelector('#NormalHours_Input');
+    const HeavyHours_Input = document.querySelector('#HeavyHours_Input');
+    const VeryHeavyHours_Input = document.querySelector('#VeryHeavyHours_Input');
+    const TotalHours_Output = document.querySelector('#TotalHours_Output');
+    const Base_Output = document.querySelector('#BaseOutput');
+    const Total_Output = document.querySelector('#TotalOutput');
+    const CalculateCalories_Button = document.querySelector('.CalculateCaloriesBtn');
+    const Makro_Output = document.querySelector('#Makro_Output');
+    const CalculateMakrosBtn = document.querySelector('.CalculateMakrosBtn');
+    const Total_Input = document.querySelector('#Total_Input');
+    const NutritionType_Input = document.querySelector('#NutritionType_Input');
+    /* variables */
+    let Age;
+    let Weight;
+    let Height;
+    let Base;
+    let Total;
+    let RestHours;
+    let VeryLightHours;
+    let LightHours;
+    let NormalHours;
+    let HeavyHours;
+    let VeryHeavyHours;
+    let TotalHours;
+    /* calculate total calorie consumption with movement */
+    const CalculateTotalCalories = () => {
+        /* convert input to number */
+        if (isNaN(parseInt(RestHours_Input.value))) {
+            RestHours = 0;
+            RestHours_Input.value = RestHours.toString();
+        }
+        else {
+            RestHours = parseInt(RestHours_Input.value);
+        }
+        if (isNaN(parseInt(VeryLightHours_Input.value))) {
+            VeryLightHours = 0;
+            VeryLightHours_Input.value = VeryLightHours.toString();
+        }
+        else {
+            VeryLightHours = parseInt(VeryLightHours_Input.value);
+        }
+        if (isNaN(parseInt(LightHours_Input.value))) {
+            LightHours = 0;
+            LightHours_Input.value = LightHours.toString();
+        }
+        else {
+            LightHours = parseInt(LightHours_Input.value);
+        }
+        if (isNaN(parseInt(NormalHours_Input.value))) {
+            NormalHours = 0;
+            NormalHours_Input.value = NormalHours.toString();
+        }
+        else {
+            NormalHours = parseInt(NormalHours_Input.value);
+        }
+        if (isNaN(parseInt(HeavyHours_Input.value))) {
+            HeavyHours = 0;
+            HeavyHours_Input.value = HeavyHours.toString();
+        }
+        else {
+            HeavyHours = parseInt(HeavyHours_Input.value);
+        }
+        if (isNaN(parseInt(VeryHeavyHours_Input.value))) {
+            VeryHeavyHours = 0;
+            VeryHeavyHours_Input.value = VeryHeavyHours.toString();
+        }
+        else {
+            VeryHeavyHours = parseInt(VeryHeavyHours_Input.value);
+        }
+        TotalHours = RestHours + VeryLightHours + LightHours + NormalHours + HeavyHours + VeryHeavyHours;
+        Base_Output.value = Base.toFixed(2); /* output base consumption */
+        if (TotalHours === 24) {
+            /* calculate total calorie consumption with base and output both */
+            switch (Gender_Input.value) {
+                case "male":
+                    Total =
+                        Base / 24 *
+                        (RestHours * 1 + (VeryLightHours * 1.2) + (LightHours * 1.3) +
+                            (NormalHours * 1.5) + (HeavyHours * 1.7) +
+                            (VeryHeavyHours * 2));
+                    break;
+                case "female":
+                    Total =
+                        Base / 24 *
+                        (RestHours * 0.95 + (VeryLightHours * 1.1) + (LightHours * 1.2) +
+                            (NormalHours * 1.4) + (HeavyHours * 1.6) +
+                            (VeryHeavyHours * 1.8));
+                    break;
+                default:
+                    break;
+            }
+            TotalHours_Output.value = TotalHours.toString();
+            Total_Output.value = Total.toFixed(2).toString();
+            Total_Input.value = Total.toFixed(2).toString();
+        }
+        else if (isNaN(TotalHours) || TotalHours === undefined || TotalHours === null) {
+            // console.log(TotalHours,typeof TotalHours);
+        }
+        else {
+            /* error message if not not 24h */
+            alert(`Es müssen 24 Stunden sein. Jetzt sind es ${TotalHours} Stunden.`);
+            TotalHours_Output.value = TotalHours.toString();
+            Total_Output.value = "";
+        }
+    };
+    CalculateCalories_Button.addEventListener('click', () => {
+        /* update variable value's for calculation */
+        Age = parseFloat(Age_Input.value);
+        Weight = parseFloat(Weight_Input.value);
+        Height = parseFloat(Height_Input.value);
+        /* check gender and calculate different base */
+        Gender_Input.value === "male" ?
+            Base =
+            66 + (13.7 * Weight) + (5 * Height) - (6.8 * Age) /* male */
+            :
+            Base =
+            655 + (9.6 * Weight) + (1.7 * Height) - (4.7 * Age); /* female */
+        isNaN(Base) ? alert("Eingabe ungültig!") : CalculateTotalCalories();
+    });
+    // Funktion zur Berechnung des Makronährstoffbedarfs
+    function calculateMacronutrients(totalCalories, nutritionType) {
+        let proteinPercentage, carbPercentage, fatPercentage;
+        // Je nach Ernährungsform die prozentualen Verteilungen setzen
+        switch (nutritionType) {
+            case "Standard":
+                proteinPercentage = 0.25;
+                carbPercentage = 0.5;
+                fatPercentage = 0.25;
+                break;
+            case "Low Carb":
+                proteinPercentage = 0.25;
+                carbPercentage = 0.3;
+                fatPercentage = 0.45;
+                break;
+            case "Low Fat":
+                proteinPercentage = 0.25;
+                carbPercentage = 0.5;
+                fatPercentage = 0.25;
+                break;
+            default:
+                console.log("Ungültige Ernährungsform");
+                return;
+        }
+        // Berechnung der Kalorien für jede Makronährstoffart
+        const proteinCalories = totalCalories * proteinPercentage;
+        const carbCalories = totalCalories * carbPercentage;
+        const fatCalories = totalCalories * fatPercentage;
+        // Kalorien pro Gramm für jede Makronährstoffart
+        const caloriesPerGramProtein = 4.1;
+        const caloriesPerGramCarb = 4.1;
+        const caloriesPerGramFat = 9.3;
+        // Umrechnung von Kalorien in Gramm für jeden Makronährstoff
+        const proteinGrams = (proteinCalories / caloriesPerGramProtein).toFixed(2);
+        const carbGrams = (carbCalories / caloriesPerGramCarb).toFixed(2);
+        const fatGrams = (fatCalories / caloriesPerGramFat).toFixed(2);
+        return [`Kohlenhydrate: ${carbGrams} g`, ` Protein: ${proteinGrams} g `, ` Fett: ${fatGrams} g`];
+    }
+    CalculateMakrosBtn.addEventListener("click", () => {
+        Total = Number(Total_Input.value);
+        console.log(Total);
+        if (!isNaN(Total)) {
+            const result = calculateMacronutrients(Total, NutritionType_Input.value);
+            Makro_Output.classList.add("Makro_Output_Show");
+            Makro_Output.innerHTML = "";
+            result?.map(result => {
+                Makro_Output.innerHTML += `<div class="Makro_Result">${result}</div>`;
+            });
+            // Total_Input.value = result;
+        }
+        else {
+            alert("Bitte geben Sie eine gültige Eingabe ein!");
+        }
+    });
+    Total_Input.addEventListener("input", () => {
+        CalculateMakrosBtn.click();
+    });
+    NutritionType_Input.addEventListener("change", () => {
+        if (!isNaN(parseInt(Total_Input.value))) {
+            CalculateMakrosBtn.click();
+        }
+    });
+</script>

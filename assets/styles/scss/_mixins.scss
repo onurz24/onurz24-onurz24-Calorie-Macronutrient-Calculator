@@ -1,0 +1,43 @@
+// Mixins 
+@mixin zentrieren($xAchse:center,$yAchse:center,$reihenfolge:column){
+    display: flex;
+    justify-content: $xAchse;
+    align-items: $yAchse;
+    flex-direction: $reihenfolge;
+    text-align: center;
+    // Example :  @include zentrieren();
+}
+@mixin zentrieren-grid($xAchse:20%,$wieOft:5,$hoehe :auto){
+    display: grid;
+    grid-template-columns: repeat($wieOft,$xAchse);
+    grid-auto-rows: $hoehe;
+    justify-content: center;
+    align-items: center;
+    // Example : @include zentrieren-grid(20%, 5);
+}
+
+@mixin schrift ($farbe:black,$size:medium,$breite:normal){
+    color: $farbe;
+    font-size : $size;
+    font-weight: $breite;
+}
+
+@mixin umrandung {
+    color: white;
+    text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+@mixin EchtheitEffekt {
+    filter: drop-shadow(.5px .5px 3px rgb(0, 0, 0));
+    // Example : @include EchtheitEffekt;
+}
+
+@mixin OberSektion {
+    width: 100%;
+    height: 60%;
+    @include zentrieren(space-evenly,center,column);
+}
