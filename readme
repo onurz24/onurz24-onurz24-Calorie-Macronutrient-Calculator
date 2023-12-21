@@ -1,5 +1,4 @@
-onurz24-Calorie-Macronutrient-Calculator
-Calorie and Macronutrient Calculator build with TypeScript SCSS. Calculates :
+## Calorie and Macronutrient Calculator build with TypeScript SCSS. Calculates : ##
 
 Basic calorie requirements based on Age, Height, Weight.
 Total calorie consumption with movement based on physical activity during the day after hours.
